@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Add Products";
+}
+
+@model crud.Models.prodinfo
+<h1 class="text-center">Add Products</h1>
+
+<div class="container">
+    <div class="row">
+        <form method="post" enctype="multipart/form-data">
+            <!-- Add enctype attribute -->
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="ProdName">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Product Price</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" asp-for="ProdPrice">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputFile" class="form-label">Product Image</label>
+                <input type="file" class="form-control" id="exampleInputFile" name="ProdImage"> <!-- Add this line -->
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

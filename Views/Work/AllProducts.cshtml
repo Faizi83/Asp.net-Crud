@@ -1,0 +1,30 @@
+﻿@model List<crud.Models.prodinfo>
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<h1 class="text-center">All Products</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="@product.ProdImageUrl" class="card-img-top" alt="@product.ProdName">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProdName</h5>
+                        <p class="card-text">Price: $@product.ProdPrice</p>
+                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
+                        <form asp-action="Delete" asp-route-id="@product.Id" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
